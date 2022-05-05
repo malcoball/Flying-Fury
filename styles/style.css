@@ -1,0 +1,78 @@
+html {
+  padding: none;
+  margin: none;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+body {
+  background-color: #553030;
+}
+
+#canvasCont {
+  width: 100%;
+}
+
+#canvasCont canvas {
+  position: absolute;
+  background: #9696ba;
+  background: linear-gradient(6deg, #9696ba 0%, #7373de 30%, #806fd2 100%);
+  top: 100px;
+  left: 500px;
+  cursor: crosshair;
+}
+
+#title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#flex1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+#flex1 #hiScore {
+  font-size: 3rem;
+}
+
+#flex1 #controls {
+  position: relative;
+  font-size: 3rem;
+  text-align: end;
+  bottom: 125px;
+}
+
+#score {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+a {
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */

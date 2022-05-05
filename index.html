@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Flying Fury</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div id="title">
+        <img src="images/Ico1.png" alt="image not loaded, please update browser">
+        <h1>Flying Fury - JS</h1>
+        <img src="images/Ico1.png" alt="image not loaded, please update browser">
+    </div>
+    <div id="flex1">
+        <div id="hiScore">
+            <h2>Hi-Score</h2>
+            <ol id="hiScore">
+                <li>Ade : 1000</li>
+                <li>Joe : 950</li>
+                <li>Mal : 950</li>
+                <li>Swe : 850</li>
+                <li>Aes : 840</li>
+                <li>Min : 800</li>
+                <li>Opa : 780</li>
+            </ol>
+        </div>
+
+        <div id="controls">
+            <h2>Controls</h2>
+            <h5>Movement</h5>
+            <ul>
+                <li>w : up,</li>
+                <li>s : down,</li>
+                <li>a : left,</li>
+                <li>d : right,</li>
+            </ul>
+            <h5>Shooting</h5>
+            <ul><li>hold space : shoot</li></ul>
+        </div>
+    </div>
+
+    <div id="score">
+        <img src="images/Ico1.png" alt="image not loaded, please update browser">
+        <h1 id="scoreOut">Current Score : 0</h1>
+        <img src="images/Ico1.png" alt="image not loaded, please update browser">
+    </div>
+    <div id="canvasCont">
+        <canvas></canvas>
+    </div>
+    <img id="sPlayer1" src="Images/pSpr1.png" alt="" srcset="">
+    <a href="index.html">Back</a>
+    
+    <script src="scripts/save.js"></script>
+    <script src="scripts/arrMethods.js"></script>
+    <script src="scripts/keypressEvents.js"></script>
+    <script src="scripts/sprites.js"></script>
+    <script src="scripts/setupCanvas.js"></script>
+    <script src="scripts/blockMap.js"></script>
+    <script src="scripts/timeMethods.js"></script>
+    <script src="scripts/gameController.js"></script>
+    <script src="scripts/particles.js"></script>
+    <script src="scripts/screensaver.js"></script>
+
+
+    <script src="scripts/ai/spawnCont.js"></script>
+    <script src="scripts/ai/moveToPoint.js"></script>
+    <script src="scripts/ai/aiMoveStates.js"></script>
+    <script src="scripts/ai/aiShootCont.js"></script>
+    <script src="scripts/collision/instances.js"></script>
+    <script src="scripts/playerCont/moveCont.js"></script>
+    <script src="scripts/playerCont/shootCont.js"></script>
+    <script src="scripts/projectiles/playerBullet.js"></script>
+
+
+
+
+    <script src="scripts/objs.js"></script>
+    <script src="scripts/objSpawn.js"></script>
+    <script src="scripts/canDraw.js"></script>
+</body>
+</html>
