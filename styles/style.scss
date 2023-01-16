@@ -34,9 +34,12 @@ $col1: #fafafa;
             background-image: url('../images/background/Cloud1.png');
             background-blend-mode: color-burn;
             background-color: #31474b;
+            cursor:url('../images/crosshair.png'),auto;
+            opacity: 0.5;
         }
         canvas:hover{
             background-color: #588188;
+            opacity: 1;
         }
 
         
