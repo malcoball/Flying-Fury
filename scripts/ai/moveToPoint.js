@@ -1,4 +1,3 @@
-
 // // Check distance;
 function moveToPointX(o,xTarget,accel = true,stopDis){
     // accel controls whether it snaps at the speed or not

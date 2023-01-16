@@ -35,20 +35,28 @@ const gameController = {
         switch(this.state){
             case "newGame":
                 // Draw to screen
-                this.hiScoreOut();
-                resetKeys();
+                
                 this.drawNewGame();
                 if (this.counter == 0){
+
+                    this.hiScoreOut();
+                    resetKeys();
+    
                     // Init duh
                     canvas.addEventListener("mouseenter",()=>{
                         this.newGame();
+                        if (this.state == "pause") this.state = "play";
                     })
+                    canvas.addEventListener("mouseleave",()=>{
+                        if (this.state == "play") this.state = "pause";
+                    })
+                    this.counter ++;
                 }
                 break;
             case "play" : 
 
-            particleStepEvents();
-                objStepEvents();
+                particleStepEvents();
+                objStepEvents(false);
 
                 // Time events
                 this.counter ++;
@@ -67,6 +75,10 @@ const gameController = {
                     spawnEnemy(1,canvas.width-64,canvas.height-64);
                 }
             break;
+            case "pause" :
+                objStepEvents(true);
+
+                break;
             case "gameOver":
                 this.hiScoreAdd();
                 this.state = "newGame";
@@ -117,11 +129,12 @@ const gameController = {
                 }
             }
             // alert("You placed "+(place+1));
-            let name = prompt(`You played : ${place+1}`);
+            let name = prompt(`You came : ${place+1}!`);
             this.scores[place].score = this.score;
             this.scores[place].name = name;
 
             saveScore(this.scores);
+            this.hiScoreOut();
 
         } else {
             alert("game over :(")
@@ -129,8 +142,8 @@ const gameController = {
     },
     hiScoreOut(){
         // Output highscore to DOM
-        let out = document.querySelector("#hiScore");
-        let childs = document.querySelectorAll("#hiScore li");
+        let out = document.querySelector("ol");
+        let childs = document.querySelectorAll("ol li");
         let len = childs.length
         for (let i = 0; i < len; i++){
             childs[i].remove();

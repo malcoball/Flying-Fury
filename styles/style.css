@@ -1,78 +1,71 @@
-html {
-  padding: none;
-  margin: none;
-  max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-body {
-  background-color: #553030;
-}
-
-#canvasCont {
-  width: 100%;
-}
-
-#canvasCont canvas {
-  position: absolute;
-  background: #9696ba;
-  background: linear-gradient(6deg, #9696ba 0%, #7373de 30%, #806fd2 100%);
-  top: 100px;
-  left: 500px;
-  cursor: crosshair;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Rubis", sans-serif;
+  background-color: rgb(51, 59, 63);
 }
 
 #title {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  border: 4px groove rgba(92, 80, 57, 0.26);
+  border-radius: 0 0 12px 12px;
+  color: #fafafa;
   display: flex;
-  width: 100%;
-  margin: auto;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  height: 10vw;
+  max-height: 150px;
+  width: 80vw;
+  margin: 0 auto;
+}
+#title img {
+  display: inline-block;
+  height: 100%;
+  max-height: 128px;
 }
 
-#flex1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 90%;
-  margin: auto;
-}
-
-#flex1 #hiScore {
-  font-size: 3rem;
-}
-
-#flex1 #controls {
-  position: relative;
-  font-size: 3rem;
-  text-align: end;
-  bottom: 125px;
-}
-
-#score {
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+#canvasCont {
+  background-color: rgba(250, 250, 250, 0);
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  width: 100vw;
+  top: 17vh;
+}
+#canvasCont .canvasContInner {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: auto;
+}
+#canvasCont .canvasContInner canvas {
+  background-image: url("../images/background/Cloud1.png");
+  background-blend-mode: color-burn;
+  background-color: #31474b;
+}
+#canvasCont .canvasContInner canvas:hover {
+  background-color: #588188;
 }
 
-a {
-  position: fixed;
-  top: 0;
-  left: 0;
-  color: white;
+#textCont {
+  padding-top: 24px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1400px;
+  width: 90vw;
 }
-/*# sourceMappingURL=style.css.map */
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h5 {
+  font-size: 1.45em;
+}
+
+li {
+  font-size: 1.1em;
+}/*# sourceMappingURL=style.css.map */

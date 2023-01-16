@@ -1,57 +1,64 @@
-html{
-    padding: none;
-    margin: none;
-    max-width:100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+$col1: #fafafa;
+*{
+    box-sizing: border-box;
+    padding: 0; margin: 0;
+    font-family: 'Rubis',sans-serif;
+    background-color: rgb(51, 59, 63);
 }
-body{
-    background-color: #553030;
+
+#title{
+    border:4px groove rgba(92, 80, 57, 0.26);
+    border-radius: 0 0 12px 12px;
+    color: $col1;
+    display: flex;
+    align-items: center; justify-content: space-around;
+    height:10vw; max-height:150px;
+    width:80vw;
+    margin:0 auto;
+    img{
+        display:inline-block;
+        height:100%;
+        max-height: 128px;
+    }
 }
 
 #canvasCont{
-    width: 100%;
-    canvas{
-        position: absolute;
-        background: rgb(150,150,186);
-        background: linear-gradient(6deg, rgba(150,150,186,1) 0%, rgba(115,115,222,1) 30%, rgba(128,111,210,1) 100%);
-        top: 100px;
-        left: 500px;
-        cursor: crosshair;
+    background-color: #fafafa00;
+    position:absolute;
+    width: 100vw;
+    top:17vh;
+    .canvasContInner{
+        width:max-content;
+        margin: auto;
+        canvas{
+            background-image: url('../images/background/Cloud1.png');
+            background-blend-mode: color-burn;
+            background-color: #31474b;
+        }
+        canvas:hover{
+            background-color: #588188;
+        }
+
+        
     }
 }
-#title{
-    display:flex;
-    width:100%;
-    margin:auto;
-    justify-content: center;
-}
-#flex1{
+#textCont{
+    padding-top:24px;
+    margin: auto;
     display:flex;
     justify-content: space-between;
-    width: 90%;
-    margin:auto;
-    #hiScore{
-        font-size: 3rem;
-    }
-    #controls{
-        position: relative;
-        font-size: 3rem;
-        text-align: end;
-        bottom: 125px;
-    }
+    max-width:1400px;
+    width:90vw;
 }
-#score{
-    text-align: center;
-    display:flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width:100%;
+h2{
+    font-size: 2em;
 }
-a{
-    position:fixed;
-    top:0;
-    left: 0;
-    color: white;
+h3{
+    font-size:1.5em;
+}
+h5{
+    font-size:1.45em;
+}
+li{
+    font-size:1.1em;
 }

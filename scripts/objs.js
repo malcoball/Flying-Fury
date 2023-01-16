@@ -11,7 +11,8 @@ class object {
         this.angle = angle
         this.size = size
         this.dmg = dmg
-        this.health = health
+        this.health = health;
+        this.maxHealth = this.health;
         this.spriteIndex = spriteIndex
         this.type = type
         this.explode = explode
@@ -28,6 +29,7 @@ class object {
         this.counter = 0;
         this.cols =[this.type]; // list of things to NOT collide with
         this.kill = false // When true, gets deleted new frame
+        this.imageAlpha = 1; // Probably what you think it is tbh
         this.imageSpeed = 6; // How many tics it takes for the sprite to change
         this.imageTic = 0;
         // this.hit = false; // Makes sure the hit event doesn't repeat every collision, maybe
@@ -36,6 +38,9 @@ class object {
         // specific spawn options, based of type only
         switch(this.type){
             case "player":
+                this.HitLength = 60; // How long it stays hit/invincible for
+                this.hitCounter = 0;
+
                 this.cols.push("pProjectile");
                 this.dmgSprs = [sPl00,sPl01,sPl02,sPl03];
                 this.dmgIndex = 0;
@@ -77,6 +82,7 @@ class object {
     }
 
     draw(){ // draw state
+        ctx.globalAlpha = this.imageAlpha;
         ctx.save();                                                         // Saves everything about the canvas
         ctx.translate(this.x,this.y);                                       // Set the rotation point to the sprite
         ctx.rotate(this.angle * Math.PI/360);                               // Rotates to this.angle
@@ -107,8 +113,18 @@ class object {
                 if (this.ySpd > 0){
                     if (this.y > canvas.height - this.size) this.ySpd = -1;
                 }
-
-
+                // When hit
+                if (this.state == "hit"){
+                    if (this.hitCounter < this.HitLength){
+                        this.imageAlpha = 0.5;
+                        this.hitCounter ++; 
+                        console.log("I'm hit");
+                    } else {
+                        this.state = "normal";
+                        this.hitCounter = 0;
+                        this.imageAlpha = 1;
+                    }
+                }
                 // Counters
             break;
             
@@ -211,13 +227,20 @@ class object {
        
     }
     hitEvent(){
-        makeParticle(this.x,this.y,"hitSpark");
-        this.health --;
-        if (this.dmgIndex !== undefined){
-            this.dmgIndex++;
-            this.spriteIndex = this.dmgSprs[this.dmgIndex];
+        let hit = true;
+        if ((this.type == "player") && (this.state == "hit")) hit = false;
+        if (hit == true){
+            makeParticle(this.x,this.y,"hitSpark");
+            this.health --;
+            if (this.dmgIndex !== undefined){
+                this.dmgIndex++;
+                this.spriteIndex = this.dmgSprs[this.dmgIndex];
+            }
+            if (this.health < 1) this.destroy();
+            if (this.type == "player"){
+                this.state = "hit";
+            }
         }
-        if (this.health < 1) this.destroy();
     }
     gridCheck(){
         // When moving, check all 4 strings with tile
@@ -279,10 +302,10 @@ class object {
     }
 }
 
-function objStepEvents(){
+function objStepEvents(pause = false){
     ctx.globalAlpha = 1;
     Objects.forEach(object => object.draw());
-    Objects.forEach(object => object.step());
+    if (pause == false)Objects.forEach(object => object.step());
     Objects = Objects.filter(object => !object.kill); // Deletes instances
 }
 
